@@ -5,6 +5,7 @@ import com.interview.resumeextractionservice.model.ResumeDetails;
 import com.interview.resumeextractionservice.service.ExtractorFactory;
 import com.interview.resumeextractionservice.service.FileType;
 import com.interview.resumeextractionservice.service.IResumeExtractorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ public class ResumeController {
 
     private ExtractorFactory extractorFactory;
 
+    @Autowired
     public ResumeController(ExtractorFactory extractorFactory) {
         this.extractorFactory = extractorFactory;
     }

@@ -6,7 +6,7 @@ public enum RegEx {
     PHONE("\\(?([0-9]{3})\\)?[-. ]([0-9]{3})[-. ]?[-. ]?([0-9]{4})"),
     OBJECTIVE("\\b(Objective(s?)|OBJECTIVE(S?)|Summary|SUMMARY|Statement)([^-!@#$%^&*()+.,?])\\b"), // summary included here
     EDUCATION("\\b(Education(s?)|EDUCATION(S?)|Diploma(s?)|DIPLOMA(S?))\\b"),
-    EXPERIENCE("\\b(Experience(s?)|EXPERIENCE(S?)|Work Experience|WORK EXPERIENCE|Work History|WORK HISTORY)\\b"),
+    EXPERIENCE("\\b(Experience(s?)|EXPERIENCE(S?)|Work Experience|WORK EXPERIENCE|Work History|WORK HISTORY|Employment History|EMPLOYMENT HISTORY)\\b"),
     SKILLS("\\b(Skill(s?) & Expertise(s?)|Tool(s?) & Technolog(y?|ies?)|Skill(s?)|SKILL(S?)|Technical Skills|TECHNICAL SKILLS|Computer Skills|COMPUTER SKILLS)\\b"),
     LANGUAGE("\\b(Language(s?)|LANGUAGE(S?))\\b"),
     INTEREST("\\b(Interest(s?)|INTEREST(S?)|Activity|Activities|ACTIVITY|ACTIVITIES)\\b"),
