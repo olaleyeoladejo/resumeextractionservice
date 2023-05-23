@@ -41,7 +41,7 @@ class ResumeControllerTest {
                 "Hello, World!".getBytes()
         );
 
-        ResumeDetails result = new ResumeDetails("Olaleye", "Male", new ArrayList<>(), new ArrayList<>());
+        ResumeDetails result = new ResumeDetails(new ArrayList<>(), new ArrayList<>());
         when(extractorFactory.findExtractor(any())).thenReturn(pdfResumeExtractorService);
         when(pdfResumeExtractorService.extractDetails(any())).thenReturn(result);
         this.mockMvc.perform(multipart("/api/resume").file(file)).andDo(print()).andExpect(status().isOk());

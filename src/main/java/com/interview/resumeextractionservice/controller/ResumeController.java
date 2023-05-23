@@ -10,6 +10,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Arrays;
+
 @RestController
 @RequestMapping("/api/resume")
 public class ResumeController {
@@ -21,16 +23,17 @@ public class ResumeController {
     }
 
     @PostMapping
-    public ResponseEntity<ResumeDetails> uploadResume(@RequestBody MultipartFile file) {
-        if(file.isEmpty()) return ResponseEntity.badRequest().build();
+    public ResponseEntity uploadResume(@RequestBody MultipartFile file) {
+        if(file.isEmpty()) return ResponseEntity.badRequest().body("empty request");
 
-        String fileType = StringUtils.getFilenameExtension(file.getOriginalFilename());
+        String fileType = StringUtils.getFilenameExtension(file.getOriginalFilename()).toUpperCase();
+
+        if(!Arrays.stream(FileType.values()).anyMatch(t -> t.name().equals(fileType)))
+            return ResponseEntity.badRequest().body("file type not supported");
+
         IResumeExtractorService extractorService = extractorFactory.findExtractor(FileType.valueOf(fileType.toUpperCase()));
         ResumeDetails extractedDetails = extractorService.extractDetails(file);
 
-        if (extractedDetails != null)
-            return ResponseEntity.ok(extractedDetails);
-        else
-            return ResponseEntity.badRequest().build();
+        return ResponseEntity.ok(extractedDetails);
     }
 }

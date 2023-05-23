@@ -26,7 +26,7 @@ public class TxtResumeExtractorService implements IResumeExtractorService {
 
     @Override
     public ResumeDetails extractDetails(MultipartFile file) {
-        ResumeDetails resumeDetails = new ResumeDetails("", "", new ArrayList<>(), new ArrayList<>());
+        ResumeDetails resumeDetails = new ResumeDetails(new ArrayList<>(), new ArrayList<>());
 
         try {
             Scanner sc = new Scanner(file.getInputStream());

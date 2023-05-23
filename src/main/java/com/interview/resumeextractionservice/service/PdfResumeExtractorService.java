@@ -28,7 +28,7 @@ public class PdfResumeExtractorService implements IResumeExtractorService{
 
     @Override
     public ResumeDetails extractDetails(MultipartFile file) {
-        ResumeDetails resumeDetails = new ResumeDetails("", "", new ArrayList<>(), new ArrayList<>());
+        ResumeDetails resumeDetails = new ResumeDetails(new ArrayList<>(), new ArrayList<>());
 
         try(PDDocument document = PDDocument.load(file.getInputStream())) {
 

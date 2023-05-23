@@ -25,7 +25,7 @@ public class DocxResumeExtractorService implements IResumeExtractorService{
     }
     @Override
     public ResumeDetails extractDetails(MultipartFile file) {
-        ResumeDetails resumeDetails = new ResumeDetails("", "",new ArrayList<>(), new ArrayList<>());
+        ResumeDetails resumeDetails = new ResumeDetails(new ArrayList<>(), new ArrayList<>());
 
         try (XWPFDocument doc = new XWPFDocument(file.getInputStream())) {
             XWPFWordExtractor xwpfWordExtractor = new XWPFWordExtractor(doc);
