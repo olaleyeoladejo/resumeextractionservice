@@ -31,7 +31,7 @@ public class ResumeController {
         if(!Arrays.stream(FileType.values()).anyMatch(t -> t.name().equals(fileType)))
             return ResponseEntity.badRequest().body("file type not supported");
 
-        IResumeExtractorService extractorService = extractorFactory.findExtractor(FileType.valueOf(fileType.toUpperCase()));
+        IResumeExtractorService extractorService = extractorFactory.findExtractor(FileType.valueOf(fileType));
         ResumeDetails extractedDetails = extractorService.extractDetails(file);
 
         return ResponseEntity.ok(extractedDetails);
