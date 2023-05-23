@@ -22,8 +22,9 @@ public class ResumeController {
 
     @PostMapping
     public ResponseEntity<ResumeDetails> uploadResume(@RequestBody MultipartFile file) {
+        if(file.isEmpty()) return ResponseEntity.badRequest().build();
+
         String fileType = StringUtils.getFilenameExtension(file.getOriginalFilename());
-        if(fileType==null) return ResponseEntity.badRequest().build();
         IResumeExtractorService extractorService = extractorFactory.findExtractor(FileType.valueOf(fileType.toUpperCase()));
         ResumeDetails extractedDetails = extractorService.extractDetails(file);
 

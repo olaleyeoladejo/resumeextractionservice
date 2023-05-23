@@ -1,8 +1,7 @@
 package com.interview.resumeextractionservice.controller;
 
 import com.interview.resumeextractionservice.model.ResumeDetails;
-import com.interview.resumeextractionservice.service.ExtractorFactory;
-import com.interview.resumeextractionservice.service.PdfResumeExtractorService;
+import com.interview.resumeextractionservice.service.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
